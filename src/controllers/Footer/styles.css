@@ -1,0 +1,15 @@
+.footer {
+  /* margin-bottom: 2px; */
+  padding: 20px;
+  display: absolute;
+  margin-left: 40%;
+  align-items: center;
+  justify-content: center;
+  font-size: medium;
+  font-weight: 700;
+}
+
+.footer__heart {
+  color: red;
+  font-size: 25px;
+}
