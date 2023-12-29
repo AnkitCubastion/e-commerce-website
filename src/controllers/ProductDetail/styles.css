@@ -21,7 +21,7 @@
   margin: 10px;
 }
 .description {
-  font-size: 20px;
+  font-size: 16px;
 }
 .description h4 {
   margin-bottom: 0;
@@ -29,7 +29,6 @@
 .title {
   font-size: 1.5rem;
   font-weight: 700;
-  /* letter-spacing: -0.5px; */
   font-family: "Roboto Mono", monospace;
 }
 .card__button {
@@ -44,20 +43,20 @@
   border: none;
   cursor: pointer;
   font-size: 20px;
-  border-radius: 2px;
+  border-radius: 10px;
 }
 .addToCart_button {
-  background-color: #ff9f00;
+  background-color: rgb(250, 150, 0);
 }
 .buyNow_button {
-  background-color: #fb641b;
+  background-color: rgb(250, 100, 0);
 }
 .rating {
   display: inline;
-  padding: 1px 15px;
+  padding: 1px 16px;
   font-size: 1.1rem;
-  background: #26a541;
-  border-radius: 99px;
+  background: rgb(25, 150, 50);
+  border-radius: 100px;
   font-weight: 700;
   color: white;
 }
@@ -92,7 +91,7 @@
     width: 90%;
   }
 }
-@media only screen and (max-width: 793px) {
+@media only screen and (max-width: 800px) {
   .card__button {
     flex-direction: column;
   }
@@ -106,13 +105,17 @@
     margin: 5px 0;
   }
 }
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 500px) {
   .product__description {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
-@media only screen and (max-width: 339px) {
+@media only screen and (max-width: 300px) {
   .product__description {
     font-size: 12px;
   }
+}
+
+img {
+  border-radius: 20px;
 }

@@ -9,10 +9,12 @@ function countProduct(product) {
     count += element.count;
   });
   return count;
-}
+} //  calculate the total count of (count) across all elements in array
 
 function Header() {
   let store = useSelector((state) => state).productCart;
+  // access the productCart property from the Redux state
+
   return (
     <div className="header">
       <div className="header__subcontainer">

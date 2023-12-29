@@ -7,8 +7,11 @@ import { getProductsWithId } from "../FetchedItems/index";
 
 export default function Cart() {
   const { productCart } = useSelector((state) => state);
+
   const [getProduct, setGetProduct] = useState({});
-  let { productId } = useParams();
+
+  let { productId } = useParams(); // to extract parameters from the URL
+
   useEffect(() => {
     async function fetchProduct(productId) {
       let fetchedProduct = await getProductsWithId(productId);
@@ -16,8 +19,7 @@ export default function Cart() {
     }
     fetchProduct(productId);
   }, [productId]);
-
-  // const { image, title, description, price, rating, id } = getProduct;
+  //  fetch product data based on the productId parameter using an asynchronous function 
 
   const [isPresent, setPresent] = useState(false);
 
@@ -30,15 +32,16 @@ export default function Cart() {
     if (obj) setPresent(true);
     else setPresent(false);
   }, [productId]);
+  // set the initial state based on whether a product with a specific productId is present in the productCart
 
   function addToCartItem(id) {
     dispatch(increment(id));
     setPresent(true);
-  }
+  } // dispatches an action to increment the quantity of an item with id, and then sets the local state variable isPresent to true
 
   function addItemToCart(id) {
     !isPresent && dispatch(increment(id));
-  }
+  } // dispatches an action to increment the quantity of an item with a given id based on the isPresent state
 
   // console.log(getProduct);
   return (

@@ -29,3 +29,5 @@ export const Login = () => {
         </>
     );
 }
+
+// Login form and its css in login.css which is import above

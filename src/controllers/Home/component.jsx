@@ -26,3 +26,5 @@ function Home() {
 }
 
 export default Home;
+
+// provide routing fun. to the home page

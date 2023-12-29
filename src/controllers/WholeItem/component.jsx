@@ -4,6 +4,7 @@ import ItemDetails from "./ItemDetails";
 import "./styles.css";
 import { checkout, setProducts } from "../redux_store/action/productsAction";
 import { getProducts } from "../FetchedItems";
+
 function findTotal(productCart, products) {
   let sum = 0;
   productCart.forEach(
@@ -11,12 +12,14 @@ function findTotal(productCart, products) {
   );
   sum = sum.toFixed(2);
   return sum;
-}
+} // calculates the total value of items in a shopping cart based on the product information and the quantity of each item
 
 function TotalProducts() {
-  const { productCart, products } = useSelector((state) => state);
-  // if(products.length==0)
+  const { productCart, products } = useSelector((state) => state); //  for selecting data from the Redux store in functional components
+
   let dispatch = useDispatch();
+  // using the useDispatch hook from React-Redux to get the dispatch function in a functional component
+
   useEffect(() => {
     async function fetchData() {
       let products = await getProducts();
@@ -24,6 +27,7 @@ function TotalProducts() {
     }
     fetchData();
   }, [dispatch]);
+  //  fetch products asynchronously and update the Redux store using the dispatch function
 
   const totalAmount = findTotal(productCart, products);
   return (

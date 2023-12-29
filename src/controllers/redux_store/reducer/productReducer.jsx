@@ -1,18 +1,19 @@
 import { ActionTypes } from "../constants/actionType";
+
 const initialState = {
   productCart: JSON.parse(localStorage.getItem("productCart")) || [],
   products: [],
-};
+}; // defining an initial state
+
 function getProductDetail(arr, id) {
   for (let i = 0; i < arr.length; i++) {
     let item = arr[i];
     if (item.id === id) return i;
   }
   return -1;
-}
+} // searches for an item with a specific id in an array
 
 function updateProduct(requiredProduct, payload) {
-  // const {INCREMENT} = ActionType;
   if (payload.updateType === "INCREMENT") {
     requiredProduct.count += 1;
     return requiredProduct;
@@ -22,17 +23,16 @@ function updateProduct(requiredProduct, payload) {
     if (requiredProduct.count === 0) return;
     return requiredProduct;
   }
-}
-function addProductInCart(payload) {
-  // console.log("This  function is called", payload);
+} // updates a given product based on a specified payload
 
+function addProductInCart(payload) {
   if (payload.updateType === "INCREMENT") {
     return {
       id: payload.id,
       count: 1,
     };
   }
-}
+} // adds a product to a cart based on a specified payload
 
 function updateproductCounter(state, payload) {
   let updatedCart = state.productCart;
@@ -46,7 +46,7 @@ function updateproductCounter(state, payload) {
     if (obj) updatedCart.push(obj);
   }
   return updatedCart;
-}
+} // updates the product count in a shopping cart based on a given state and payload
 
 function counterReducer(state = initialState, action) {
   const { UPDATE_PRODUCT_COUNTER, SET_PRODUCTS, SET_CHECKOUT } = ActionTypes;
@@ -63,5 +63,6 @@ function counterReducer(state = initialState, action) {
     default:
       return state;
   }
-}
+} // manages the state related to product counters and products
+
 export default counterReducer;
